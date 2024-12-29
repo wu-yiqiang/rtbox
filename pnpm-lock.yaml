@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@lucky-canvas/react':
+        specifier: ^0.1.13
+        version: 0.1.13
       ahooks:
         specifier: ^3.8.0
         version: 3.8.0(react@18.3.1)
@@ -35,6 +38,9 @@ importers:
       sass:
         specifier: ^1.83.0
         version: 1.83.0
+      vite-plugin-sass:
+        specifier: ^0.1.0
+        version: 0.1.0
       zustand:
         specifier: ^4.5.2
         version: 4.5.4(@types/react@18.3.3)(react@18.3.1)
@@ -393,6 +399,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lucky-canvas/react@0.1.13':
+    resolution: {integrity: sha512-4M2bHOn5lEBubqDXXHKONnAERr3O4YIbQ8Q8QynmbD0DeSk/VQewBAzx4RopHr3Fe0dcN98YmvwaxqNl39OR7w==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1736,6 +1745,9 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lucky-canvas@1.7.27:
+    resolution: {integrity: sha512-Ftz6qD+863bI7xijBmZg3dw3cNEc7odPr70EZQcGA14y3TgTAzH65HPosOCd6kKUlMwhntBaHMx3onoj9MtJRQ==}
+
   make-dir@2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
     engines: {node: '>=6'}
@@ -2336,6 +2348,9 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  vite-plugin-sass@0.1.0:
+    resolution: {integrity: sha512-gLwvs3ozfDAOZCqs+PepkTd4078m8tfq50IlmTW/OphlWsW95uP7lQ5A3NezfUfTZDTCOA4nFlYnOWRpsKYOqw==}
+
   vite-plugin-svgr@4.2.0:
     resolution: {integrity: sha512-SC7+FfVtNQk7So0XMjrrtLAbEC8qjFPifyD7+fs/E6aaNdVde6umlVVh0QuwDLdOMu7vp5RiGFsB70nj5yo0XA==}
     peerDependencies:
@@ -2699,6 +2714,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@lucky-canvas/react@0.1.13':
+    dependencies:
+      lucky-canvas: 1.7.27
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -4121,6 +4140,8 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  lucky-canvas@1.7.27: {}
+
   make-dir@2.1.0:
     dependencies:
       pify: 4.0.1
@@ -4769,6 +4790,8 @@ snapshots:
       react: 18.3.1
 
   util-deprecate@1.0.2: {}
+
+  vite-plugin-sass@0.1.0: {}
 
   vite-plugin-svgr@4.2.0(rollup@4.20.0)(typescript@5.5.4)(vite@5.4.0(@types/node@20.14.14)(less@4.2.0)(sass@1.83.0)):
     dependencies:

@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
 import Autoprefixer from 'autoprefixer';
 import PostCssPxToRem from 'postcss-pxtorem';
-import Tailwindcss from 'tailwindcss';
+// import Tailwindcss from 'tailwindcss';
+import sass from 'vite-plugin-sass'
 
 export default defineConfig(({ mode }) => {
   // loadEnv中三个参数 (mode,dir,base) -> 返回一个包含环境变量的对象
@@ -86,10 +87,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: publicPath,
 
-    plugins: [
-      react(),
-      svgr()
-    ],
+    plugins: [react(), svgr(), sass()],
 
     build: {
       outDir: outputDir,
@@ -105,14 +103,16 @@ export default defineConfig(({ mode }) => {
       //   }
       // },
       rollupOptions: {
-        output: { // 对打包的静态资源做处理
+        output: {
+          // 对打包的静态资源做处理
           chunkFileNames: 'assets/js/[name]-[hash].js',
           entryFileNames: 'assets/js/[name]-[hash].js',
           assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
-          manualChunks(id) { // 超大静态资源拆分
-            if(id.includes('node_modules')) {
-              const list = id.toString().split('node_modules/');
-              return list[list.length - 1].split('/')[0].toString();
+          manualChunks(id) {
+            // 超大静态资源拆分
+            if (id.includes('node_modules')) {
+              const list = id.toString().split('node_modules/')
+              return list[list.length - 1].split('/')[0].toString()
             }
           }
         }
@@ -141,16 +141,11 @@ export default defineConfig(({ mode }) => {
     },
 
     css: {
-      postcss: { // vite内配置postcss后 postcss.config.js失效
+      postcss: {
+        // vite内配置postcss后 postcss.config.js失效
         plugins: [
           Autoprefixer({
-            overrideBrowserslist: [
-              'Android 4.1',
-              'iOS 7.1',
-              'Chrome > 31',
-              'ff > 31',
-              'ie >= 8'
-            ]
+            overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
           }),
 
           PostCssPxToRem({
@@ -165,11 +160,8 @@ export default defineConfig(({ mode }) => {
             // minPixelValue: 0, // 设置要替换的最小像素值(3px会被转rem)。 默认 0
             exclude: /node_modules/i // node_modules目录下的文件，不进行rem转换
           }),
-
-          Tailwindcss()
         ]
       }
     }
-
-  };
+  }
 });

@@ -12,6 +12,7 @@
     "prod": "tsc && vite build"
   },
   "dependencies": {
+    "@lucky-canvas/react": "^0.1.13",
     "ahooks": "^3.8.0",
     "antd-mobile": "^5.35.0",
     "axios": "^1.6.8",
@@ -21,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "sass": "^1.83.0",
+    "vite-plugin-sass": "^0.1.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

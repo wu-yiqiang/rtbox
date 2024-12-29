@@ -7,7 +7,7 @@
  */
 import { Suspense, useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
-
+import "@/styles/App.scss"
 import Loading from '@/components/Loading';
 
 import r, { generateRouter } from './router';
