@@ -1,0 +1,51 @@
+.root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 20px; */
+  text-align: center;
+}
+.div {
+  width: 750px;
+  height: 100px;
+  background: red;
+}
+.token {
+  font-size: 32px;
+  line-height: 28px;
+}
+
+.logo {
+  height: 100px;
+  padding: 10px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 20px #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 20px #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 20px;
+}
+
+.read-the-docs {
+  color: #888;
+}
