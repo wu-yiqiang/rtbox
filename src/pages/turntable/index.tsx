@@ -6,10 +6,10 @@ function Turntable() {
   const [blocks] = useState([{ padding: '10px', background: '#869cfa' }])
   const [prizes] = useState([
     { background: '#e9e8fe', fonts: [{ text: '一等奖' }] },
-    { background: '#b8c5f2', fonts: [{ text: '二等奖' }] },
+    { background: '#b8c5f2', fonts: [{ text: '谢谢参与' }] },
     { background: '#e9e8fe', fonts: [{ text: '三等奖' }] },
     { background: '#b8c5f2', fonts: [{ text: '再来一次' }] },
-    { background: '#e9e8fe', fonts: [{ text: '谢谢参与' }] },
+    { background: '#e9e8fe', fonts: [{ text: '二等奖' }] },
     { background: '#b8c5f2', fonts: [{ text: '谢谢参与' }] }
   ])
   const [buttons] = useState([
