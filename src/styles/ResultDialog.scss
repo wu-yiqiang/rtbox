@@ -1,0 +1,22 @@
+.ResultDialog {
+  min-width: 50vw;
+  max-width: 80vw;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: rgb(159, 157, 156);
+  .title {
+    font-size: 16px;
+    color: rgb(67, 66, 66);
+  }
+  .contents {
+    font-size: 14px;
+    padding: 4px;
+    color: rgb(226, 224, 224);
+  }
+  .close {
+    color: rgb(99, 99, 238);
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,28 @@
+dialog {
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  // padding: 10px;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale-up-center-open 0.3s ease-in both;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: var(--dialog-background-color);
+  display: grid;
+  place-content: center;
+  &::backdrop {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes scale-up-center-open {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
