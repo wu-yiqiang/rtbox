@@ -1,17 +1,18 @@
-import '@/styles/truntable.scss'
-import { useRef, useState } from 'react'
-import { LuckyWheel } from '@lucky-canvas/react'
-import ResultDialog from './ResultDialog.tsx'
+import '@/styles/truntable.scss';
+import { useEffect, useRef, useState } from 'react';
+import { LuckyWheel } from '@lucky-canvas/react';
+import ResultDialog from './ResultDialog.tsx';
+import { RTBOX } from '@/common/enums.ts'
+import { getCache } from '@/utils/getCache.ts';
+import { isEmpty } from 'lodash-es';
 function Turntable() {
-  const [blocks] = useState([{ padding: '10px', background: '#869cfa' }])
-  const [prizes] = useState([
-    { background: '#e9e8fe', fonts: [{ text: '一等奖' }] },
+  const [blocks] = useState([{ padding: '10px', background: '#869cfa' }]);
+  const [prizes, setPrizes] = useState([{ background: '#e9e8fe', fonts: [{ text: '一等奖' }] },
     { background: '#b8c5f2', fonts: [{ text: '谢谢参与' }] },
     { background: '#e9e8fe', fonts: [{ text: '三等奖' }] },
     { background: '#b8c5f2', fonts: [{ text: '再来一次' }] },
     { background: '#e9e8fe', fonts: [{ text: '二等奖' }] },
-    { background: '#b8c5f2', fonts: [{ text: '谢谢参与' }] }
-  ])
+    { background: '#b8c5f2', fonts: [{ text: '谢谢参与' }] }])
   const [buttons] = useState([
     { radius: '40%', background: '#617df2' },
     { radius: '35%', background: '#afc8ff' },
@@ -21,13 +22,18 @@ function Turntable() {
       pointer: true,
       fonts: [{ text: '开始', top: '-10px' }]
     }
-  ])
-  const [visible, setVisible] = useState(false)
-  const [contents, setContents] = useState("")
+  ]);
+  const [visible, setVisible] = useState(false);
+  const [contents, setContents] = useState('');
+  const myLucky = useRef();
+  useEffect(() => {
+    if(!isEmpty(getCache(RTBOX))) setPrizes(getCache(RTBOX))
+  }, [])
   const handleClose = () => {
-    setVisible(false)
-  }
-  const myLucky = useRef()
+    setVisible(false);
+  };
+
+
   return (
     <div className="TurnTable">
       <LuckyWheel
@@ -39,21 +45,21 @@ function Turntable() {
         buttons={buttons}
         onStart={() => {
           // 点击抽奖按钮会触发star回调
-          myLucky.current.play()
+          myLucky.current.play();
           setTimeout(() => {
-            const index = (Math.random() * 6) >> 0
-            myLucky.current.stop(index)
-          }, 2500)
+            const index = (Math.random() * 6) >> 0;
+            myLucky.current.stop(index);
+          }, 2500);
         }}
         onEnd={(prize) => {
-          console.log('sdsd', prize.fonts[0].text)
-          setVisible(true)
-          setContents(prize.fonts[0].text)
+          console.log('sdsd', prize.fonts[0].text);
+          setVisible(true);
+          setContents(prize.fonts[0].text);
         }}
       />
       {visible ? <ResultDialog contents={contents} close={handleClose} /> : null}
     </div>
-  )
+  );
 }
 
-export default Turntable
+export default Turntable;
